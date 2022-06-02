@@ -1,0 +1,8 @@
+$black: #000000;
+$fs-1: 0.85rem;
+@mixin textStyle1 {
+  font-weight: 400;
+  color: $black;
+  opacity: 0.8;
+  font-size: $fs-1;
+}

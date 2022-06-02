@@ -1,0 +1,121 @@
+@import "textStyle1";
+@import "variables";
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  overflow-y: hidden;
+  display: grid;
+  place-items: center;
+}
+body {
+  background: url("../Assets/Background.png") no-repeat;
+  background-size: cover;
+  font-family: Work Sans;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: $b-radius;
+  width: 405px;
+  height: 510px;
+  background-color: $white;
+  .card__cover {
+    padding: 2rem 3rem;
+    width: 100%;
+    border-top-left-radius: $b-radius;
+    border-top-right-radius: $b-radius;
+    background: url("../Assets/Pattern.png");
+    background-color: $blue;
+    h1 {
+      text-align: center;
+      color: $white;
+      font-size: 1.6rem;
+    }
+  }
+  .card__content {
+    padding: 1.215rem;
+    flex: 1;
+    h2 {
+      @include textStyle1;
+      text-align: center;
+      padding: 0 1.1rem;
+      margin: 0 0 1.4rem 0;
+      line-height: $line-height;
+    }
+    form {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      padding: 0 0.25rem;
+      grid-column-gap: 0.5rem;
+      input {
+        background-color: $textfield-bg;
+        font-family: Work Sans;
+        font-weight: 400;
+        padding: 0.75rem;
+        border-radius: 0.3rem;
+        border: 1px solid $grey;
+      }
+      button {
+        padding: 0.75rem 1.5rem;
+        background-color: $blue;
+        color: $white;
+        font-weight: 600;
+        font-family: Work Sans;
+        border-radius: 0.3rem;
+        border: none;
+      }
+    }
+    h3 {
+      color: $grey;
+      padding: 0 0.25rem;
+      font-size: $fs-1;
+      font-weight: 400;
+    }
+    section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+      img {
+        margin-right: 0.55rem;
+      }
+      h4 {
+        margin-top: 0;
+        margin-bottom: 0.1rem;
+        font-size: $fs-1;
+      }
+      h5 {
+        margin: 0;
+        @include textStyle1;
+      }
+    }
+    h6 {
+      text-align: center;
+      margin-top: 1.15rem;
+      margin-bottom: 0;
+      @include textStyle1;
+      line-height: $line-height;
+      padding: 0 0.15rem;
+    }
+  }
+}
+@media (max-width: 420px) {
+  .card {
+    width: 350px;
+    height: 505px;
+    .card__content {
+      form {
+        padding: 0;
+      }
+      h6 {
+        padding: 0;
+      }
+    }
+  }
+}
