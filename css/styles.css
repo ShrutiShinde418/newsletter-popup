@@ -6,8 +6,6 @@
 
 html,
 body {
-  height: 100%;
-  overflow-y: hidden;
   display: grid;
   place-items: center;
 }
@@ -16,17 +14,20 @@ body {
   background: url("../Assets/Background.png") no-repeat;
   background-size: cover;
   font-family: Work Sans;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   border-radius: 0.65rem;
-  width: 405px;
-  height: 510px;
+  max-width: 405px;
+  max-height: 510px;
   background-color: #ffffff;
 }
-.card .card__cover {
+.card__cover {
   padding: 2rem 3rem;
   width: 100%;
   border-top-left-radius: 0.65rem;
@@ -34,16 +35,16 @@ body {
   background: url("../Assets/Pattern.png");
   background-color: #2355f2;
 }
-.card .card__cover h1 {
+.card__cover h1 {
   text-align: center;
   color: #ffffff;
   font-size: 1.6rem;
 }
-.card .card__content {
+.card__content {
   padding: 1.215rem;
   flex: 1;
 }
-.card .card__content h2 {
+.card__content h2 {
   font-weight: 400;
   color: #000000;
   opacity: 0.8;
@@ -53,14 +54,14 @@ body {
   margin: 0 0 1.4rem 0;
   line-height: 1.35em;
 }
-.card .card__content form {
+.card__content form {
   width: 100%;
   display: grid;
   grid-template-columns: 2fr 1fr;
   padding: 0 0.25rem;
   grid-column-gap: 0.5rem;
 }
-.card .card__content form input {
+.card__content form input {
   background-color: #f5f7fa;
   font-family: Work Sans;
   font-weight: 400;
@@ -68,7 +69,7 @@ body {
   border-radius: 0.3rem;
   border: 1px solid #bdbdbd;
 }
-.card .card__content form button {
+.card__content form button {
   padding: 0.75rem 1.5rem;
   background-color: #2355f2;
   color: #ffffff;
@@ -77,34 +78,34 @@ body {
   border-radius: 0.3rem;
   border: none;
 }
-.card .card__content h3 {
+.card__content h3 {
   color: #bdbdbd;
   padding: 0 0.25rem;
   font-size: 0.85rem;
   font-weight: 400;
 }
-.card .card__content section {
+.card__content section {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
 }
-.card .card__content section img {
+.card__content section img {
   margin-right: 0.55rem;
 }
-.card .card__content section h4 {
+.card__content section h4 {
   margin-top: 0;
   margin-bottom: 0.1rem;
   font-size: 0.85rem;
 }
-.card .card__content section h5 {
+.card__content section h5 {
   margin: 0;
   font-weight: 400;
   color: #000000;
   opacity: 0.8;
   font-size: 0.85rem;
 }
-.card .card__content h6 {
+.card__content h6 {
   text-align: center;
   margin-top: 1.15rem;
   margin-bottom: 0;
@@ -118,14 +119,27 @@ body {
 
 @media (max-width: 420px) {
   .card {
-    width: 350px;
-    height: 505px;
+    max-width: 350px;
+    max-height: 100%;
   }
-  .card .card__content form {
+  .card__cover {
+    padding: 2rem 2.5rem;
+  }
+  .card__content form {
     padding: 0;
   }
-  .card .card__content h6 {
+  .card__content h6 {
     padding: 0;
+  }
+}
+@media (max-width: 325px) {
+  .card {
+    max-width: 290px;
+  }
+  .card__content form {
+    width: auto;
+    grid-template-columns: 1fr;
+    grid-row-gap: 0.5rem;
   }
 }
 

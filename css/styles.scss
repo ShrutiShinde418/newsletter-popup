@@ -7,8 +7,6 @@
 }
 html,
 body {
-  height: 100%;
-  overflow-y: hidden;
   display: grid;
   place-items: center;
 }
@@ -16,15 +14,18 @@ body {
   background: url("../Assets/Background.png") no-repeat;
   background-size: cover;
   font-family: Work Sans;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 .card {
   display: flex;
   flex-direction: column;
   border-radius: $b-radius;
-  width: 405px;
-  height: 510px;
+  max-width: 405px;
+  max-height: 510px;
   background-color: $white;
-  .card__cover {
+  &__cover {
     padding: 2rem 3rem;
     width: 100%;
     border-top-left-radius: $b-radius;
@@ -37,7 +38,7 @@ body {
       font-size: 1.6rem;
     }
   }
-  .card__content {
+  &__content {
     padding: 1.215rem;
     flex: 1;
     h2 {
@@ -105,16 +106,32 @@ body {
     }
   }
 }
-@media (max-width: 420px) {
+@media (max-width: $mobile-breakpoint-1) {
   .card {
-    width: 350px;
-    height: 505px;
-    .card__content {
+    max-width: 350px;
+    max-height: 100%;
+    &__cover {
+      padding: 2rem 2.5rem;
+    }
+    &__content {
       form {
         padding: 0;
       }
       h6 {
         padding: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-breakpoint-2) {
+  .card {
+    max-width: 290px;
+    &__content {
+      form {
+        width: auto;
+        grid-template-columns: 1fr;
+        grid-row-gap: 0.5rem;
       }
     }
   }
